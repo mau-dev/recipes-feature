@@ -6,6 +6,13 @@ const connectDB = require('./config/db');
 
 connectDB();
 
+// Init middleware for the body parser
+app.use(
+    express.json({
+        extended: false
+    })
+);
+
 app.get('/', (req, res) => res.send(`API Running`));
 
 
