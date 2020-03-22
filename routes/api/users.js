@@ -82,9 +82,29 @@ router.post(
 
             //save the user to the db 
             await user.save();
-            console.log('user saved to database')
+            console.log('user saved to database');
            
-            res.send('User successfully registered')
+
+            const payload = {
+                user: {
+                    id: user.id
+                }
+            };
+           
+            jwt.sign(
+                payload,
+                config.get('jwtSecret'), {
+                    expiresIn: 80000000
+                },
+                (err, token) => {
+                    if (err) throw err;
+                    res.json({
+                        token
+                    });
+                }
+            );
+         // res.send('User successfully registered');
+        console.log('User successfully registered');
 
         } catch (err) {
             console.log(err.message);
