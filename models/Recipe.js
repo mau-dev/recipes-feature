@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const RecipeSchema = new Schema({
-    //references
+    //posted by references
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -48,10 +48,14 @@ const RecipeSchema = new Schema({
         unit: { type: String},
         name: { type: String}
       }],
-    preparation: [{
-        stepOrderNumber: { type: Number },
-        desctiotion: { type: String}
-      }],
+    // preparation: [{
+    //     stepOrderNumber: { type: Number },
+    //     desctiotion: { type: String}
+    //   }],
+    preparation: {
+          type:[String]
+        
+      },
     preparationPhotos: {
         type: [String]
     },
