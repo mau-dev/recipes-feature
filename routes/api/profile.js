@@ -12,6 +12,8 @@ const User = require('../../models/User');
 // @route    GET api/profile/me
 // @desc     Get current users profile
 // @access   Private
+
+//@to do: //get recipes by user show on profile
 router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -23,6 +25,7 @@ router.get('/me', auth, async (req, res) => {
     }
 
     res.json(profile.populate('user', ['username', 'profilePicture']));
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

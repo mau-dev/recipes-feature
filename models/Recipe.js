@@ -42,12 +42,23 @@ const RecipeSchema = new Schema({
     cookingTime: {
         type: Number
     },
+    measurementsType: {
+        type: String
+    },
     ingredients: [{
-        measurementsType: {type: String},
+       
         quantity: { type: Number},
         unit: { type: String},
-        name: { type: String}
+        ingredient: { type: String}
       }],
+    //   ingredients: [
+    //     {
+    //         quantity: { type: Number},
+    //         unit: { type: mongoose.Schema.Types.ObjectId, ref: 'Unit' },
+    //         ingredient: { type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient'}
+           
+    //     }
+    // ],
     // preparation: [{
     //     stepOrderNumber: { type: Number },
     //     desctiotion: { type: String}
