@@ -1,7 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // @to do: change it to auth modal, pop up instead of separate route
+// @to do later: change the user model with email and password only to match abilionveg existing,
+// move username and profilePicture to profile model to not be part of the auth
 
 const Register = () => {
 {/* the default values  */}
@@ -25,6 +28,28 @@ const Register = () => {
     } else {
       console.log(formData);
       console.log('Submitted form data');
+      //test request with axios before setting up redux
+      const newUser = {
+          username,
+          email,
+          password
+      }
+
+      try {
+          const config = {
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }
+          
+          const body = JSON.stringify(newUser);
+          //send data to /api/users
+          const res = await axios.post('/api/users', body, config);
+          console.log(res.data);
+
+      } catch (error) {
+          console.error(error.response.data);
+      }
     };
   };
 
@@ -59,7 +84,7 @@ const Register = () => {
             type="password"
             placeholder="Password"
             name="password"
-            minLength="6"
+            minLength="8"
             value={password}
             onChange={e => onChange(e)}
             required
@@ -70,7 +95,7 @@ const Register = () => {
             type="password"
             placeholder="Confirm Password"
             name="password2"
-            minLength="6"
+            minLength="8"
             value={password2}
             onChange={e => onChange(e)}
             required
