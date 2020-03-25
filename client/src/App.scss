@@ -4,6 +4,17 @@ body {
   padding: 0;
 }
 
+* a{
+  text-decoration: none;
+  text-decoration-color: none;
+  color: inherit;
+
+}
+
+a:-webkit-any-link {
+  color: none;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;

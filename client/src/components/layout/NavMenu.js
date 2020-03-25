@@ -9,8 +9,8 @@ const NavMenu = () => {
               <ul>
                 <li>Feed</li>               
                 <li>Near Me</li>
-                <li>Explore</li>
-                <li>Recipes</li>
+                <li><Link to="/explore">Explore</Link></li>
+                <li><Link to="/recipes">Recipes</Link></li>
                 <li>Articles</li>
                 <li>Challenge</li>
                 <li>About</li>

@@ -6,7 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import RecipesPage from './pages/RecipesPage';
 import NewRecipePage from './pages/NewRecipePage';
-// import ExplorePage from './pages/ExplorePage';
+import ExplorePage from './pages/ExplorePage';
 
 import './App.scss';
 
@@ -18,8 +18,8 @@ const App = () => (
       <Route exact path='/' component={RecipesPage} /> 
 			
 			<Switch>
-				{/* <Route exact path='/explore' component={ExplorePage} /> 
-        <Route exact path='/recipes' component={RecipesPage} />  */}
+				<Route exact path='/explore' component={ExplorePage} /> 
+        <Route exact path='/recipes' component={RecipesPage} /> 
         <Route exact path='/recipes/new' component={NewRecipePage} /> 
         <Route exact path='/register' component={Register} />
 				<Route exact path='/login' component={Login} />
