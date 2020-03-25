@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../../images/abv-logo.png';
 import '../../App.scss';
@@ -28,16 +29,14 @@ const TopNavbar = () => {
 					</div>
 				</div>
 				<div className='topNav-menu-right'>
-					<img src={logo} className='abv-logo' alt='logo' />
-					<div className='search-box-outer'>
-						<div className='search-icon-div'>
-							<i className='fas fa-search' />
-							<div className='search-input-div'>
-								<input type='search' placeholder='Search' name='search' className='searchInput' />
-							</div>
-
-						</div>
-					</div>
+					{/* <button className='post-recipe'>Post Recipe</button> */}
+					
+					<ul>
+						<li><Link to="/recipes/new" className='post-recipe'>Post Recipe</Link></li>
+						<li><Link to="/login">Login</Link></li>
+						<li><Link to="/register">Sign Up</Link></li>
+						
+					</ul>
 				</div>
 			</nav>
 		</div>
