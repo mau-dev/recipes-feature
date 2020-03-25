@@ -4,6 +4,13 @@ import logo from '../../images/abv-logo.png';
 import '../../App.scss';
 // import { FaSearch } from 'react-icons/fa';
 
+
+//@to do: finalise the right menu logged in vs logged out
+//logged in has: user profilepic, post review/post recipe btn
+//logged out: sign up, login links, post a review/recipe btn
+
+//@to-do later: separate components and containers for everything
+
 const TopNavbar = () => {
 	return (
 		<div>

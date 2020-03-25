@@ -68,3 +68,26 @@ body {
   display: flex;
   padding: inherit;
 }
+
+.nav-menu {
+  height: 50px;
+  background-color: #F8F9FB;
+  display: flex;
+  justify-content: center;
+
+    ul {
+      list-style: none;
+      display: inline-flex;
+      align-self: center;
+      justify-content: center;
+
+      li {
+        padding: 0 12px;
+        // text-transform: uppercase;
+        font-weight: 700;
+        color: #1BAAB4;
+      }
+    }
+  
+
+}
