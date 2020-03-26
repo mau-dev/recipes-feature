@@ -7,6 +7,9 @@ import '../../App.scss';
 
 //@to do: finalise the right menu logged in vs logged out
 //logged in has: user profilepic, post review/post recipe btn
+
+//profilePic on logged in to lead to: profile route, (inside edit profile route link), user's recipes, user's saved recipes by other, and logout
+
 //logged out: sign up, login links, post a review/recipe btn
 
 //@to-do later: separate components and containers for everything
