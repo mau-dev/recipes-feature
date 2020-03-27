@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import {connect} from 'react-redux';
+import {logout} from '../../actions/auth';
+import PropTypes from 'prop-types';
+
 import logo from '../../images/abv-logo.png';
 import '../../App.scss';
-// import { FaSearch } from 'react-icons/fa';
 
 //@to do: finalise the right menu logged in vs logged out
 //logged in has: user profilepic, post review/post recipe btn
@@ -14,7 +17,7 @@ import '../../App.scss';
 
 //@to-do later: separate components and containers for everything
 
-const TopNavbar = () => {
+const TopNavbar = ({auth: {isAuthenticated, loading}, logout}) => {
 	return (
 		<div>
 			<nav className='navbar top-nav'>
@@ -32,8 +35,6 @@ const TopNavbar = () => {
 					</div>
 				</div>
 				<div className='topNav-menu-right'>
-					{/* <button className='post-recipe'>Post Recipe</button> */}
-
 					<ul>
 						<li>
 							<Link to='/recipes/new' className='post-recipe'>
@@ -46,6 +47,11 @@ const TopNavbar = () => {
 						<li>
 							<Link to='/register'>Sign Up</Link>
 						</li>
+						<li>
+							<a onClick={logout} href='#!'>
+								Logout
+							</a>
+						</li>
 					</ul>
 				</div>
 			</nav>
@@ -53,4 +59,13 @@ const TopNavbar = () => {
 	);
 };
 
-export default TopNavbar;
+TopNavbar.propTypes = {
+	logout: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, {logout})(TopNavbar);

@@ -4,7 +4,8 @@ import {
 	USER_LOADED,
 	AUTH_ERROR,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL
+	LOGIN_FAIL,
+	LOGOUT
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -43,6 +44,14 @@ export default function(state = initialState, action) {
 				isAuthenticated: true,
 				loading: false,
 				user: payload
+			};
+		case LOGOUT:
+			return {
+				...state,
+				token: null,
+				isAuthenticated: false,
+				loading: false,
+				user: null
 			};
 
 		default:
