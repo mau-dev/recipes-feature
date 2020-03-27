@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 // import axios from 'axios';
 import {connect} from 'react-redux';
 import {register} from '../../actions/auth';
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 // @to do later: change the user model with email and password only to match abilionveg existing,
 // move username and profilePicture to profile model to not be part of the auth
 
-const Register = ({register}) => {
+const Register = ({register, isAuthenticated}) => {
 	{
 		/* the default values  */
 	}
@@ -68,6 +68,10 @@ const Register = ({register}) => {
 			// ^ moved to auth action, here a=only calling it register();
 		}
 	};
+
+	if (isAuthenticated) {
+		return <Redirect to='/recipes' />;
+	}
 
 	return (
 		<div className='form-wrap'>
@@ -129,6 +133,10 @@ Register.propTypes = {
 	isAuthenticated: PropTypes.bool
 };
 
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated
+});
+
 //connect the redux register action to the component
 
-export default connect(null, {register})(Register);
+export default connect(mapStateToProps, {register})(Register);

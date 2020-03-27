@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {login} from '../../actions/auth';
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 // login with email & password only, to match abilionveg existing method,
 // username and profilePicture will be moved from the user model to the profile model
 
-const Login = ({login}) => {
+const Login = ({login, isAuthenticated}) => {
 	const [ formData, setFormData ] = useState({
 		email: '',
 		password: ''
@@ -26,6 +26,10 @@ const Login = ({login}) => {
 		login({email, password});
 		console.log('Successfully logged in!!');
 	};
+
+	if (isAuthenticated) {
+		return <Redirect to='/recipes' />;
+	}
 
 	return (
 		<div className='form-wrap'>
@@ -66,4 +70,8 @@ Login.propTypes = {
 	isAuthenticated: PropTypes.bool
 };
 
-export default connect(null, {login})(Login);
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {login})(Login);
