@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {logout} from '../../actions/auth';
+import {getCurrentProfile} from '../../actions/profile';
 import PropTypes from 'prop-types';
 
 import logo from '../../images/abv-logo.png';
@@ -17,7 +18,7 @@ import '../../App.scss';
 
 //@to-do later: separate components and containers for everything
 
-const TopNavbar = ({auth: {isAuthenticated, loading}, logout}) => {
+const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}) => {
 	return (
 		<div>
 			<nav className='navbar top-nav'>
@@ -42,6 +43,9 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout}) => {
 							</Link>
 						</li>
 						<li>
+							<Link to='/profile/me'>Profile</Link>
+						</li>
+						<li>
 							<Link to='/login'>Login</Link>
 						</li>
 						<li>
@@ -61,11 +65,14 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout}) => {
 
 TopNavbar.propTypes = {
 	logout: PropTypes.func.isRequired,
-	auth: PropTypes.object.isRequired
+	auth: PropTypes.object.isRequired,
+	getCurrentProfile: PropTypes.func.isRequired,
+	profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-	auth: state.auth
+	auth: state.auth,
+	profile: state.profile
 });
 
-export default connect(mapStateToProps, {logout})(TopNavbar);
+export default connect(mapStateToProps, {logout, getCurrentProfile})(TopNavbar);

@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import RecipesPage from './pages/RecipesPage';
 import NewRecipePage from './pages/NewRecipePage';
 import ExplorePage from './pages/ExplorePage';
+import UsersProfilePage from './pages/UsersProfilePage';
 
 import {Provider} from 'react-redux';
 import store from './store';
@@ -34,6 +35,7 @@ const App = () => {
 						<Route exact path='/explore' component={ExplorePage} />
 						<Route exact path='/recipes' component={RecipesPage} />
 						<Route exact path='/recipes/new' component={NewRecipePage} />
+						<Route exact path='/profile/me' component={UsersProfilePage} />
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/login' component={Login} />
 					</Switch>
