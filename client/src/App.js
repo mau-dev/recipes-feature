@@ -11,6 +11,7 @@ import ExplorePage from './pages/ExplorePage';
 
 import ProfileDashboard from './components/profileDashboard/ProfileDashboard';
 import CreateProfile from './components/profileForms/CreateProfile';
+import UpdateProfile from './components/profileForms/UpdateProfile';
 
 import {Provider} from 'react-redux';
 import store from './store';
@@ -42,7 +43,7 @@ const App = () => {
 						{/* <Route exact path='/profile/me' component={UsersProfilePage} /> */}
 						{/* <Route exact path='/create-profile' component={CreateProfilePage} /> */}
 						<PrivateRoute exact path='/create-profile' component={CreateProfile} />
-
+						<PrivateRoute exact path='/settings' component={UpdateProfile} />
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/login' component={Login} />
 					</Switch>

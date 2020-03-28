@@ -18,8 +18,8 @@ export const getCurrentProfile = () => async (dispatch) => {
 	}
 };
 
-// CREATE PROFILE
-export const createProfile = (formData) => async (dispatch) => {
+// CREATE  PROFILE
+export const createProfile = (formData, history, edit = false) => async (dispatch) => {
 	try {
 		const config = {
 			headers: {
@@ -33,6 +33,10 @@ export const createProfile = (formData) => async (dispatch) => {
 			type: GET_PROFILE,
 			payload: res.data
 		});
+
+		if (!edit) {
+			history.push('/profile-me');
+		}
 	} catch (err) {
 		const errors = err.response.data.errors;
 
