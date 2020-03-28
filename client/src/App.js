@@ -4,10 +4,13 @@ import TopNavbar from './components/layout/TopNavbar';
 import NavMenu from './components/layout/NavMenu';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import PrivateRoute from './components/routing/PrivateRoute';
 import RecipesPage from './pages/RecipesPage';
 import NewRecipePage from './pages/NewRecipePage';
 import ExplorePage from './pages/ExplorePage';
-import UsersProfilePage from './pages/UsersProfilePage';
+
+import ProfileDashboard from './components/profileDashboard/ProfileDashboard';
+import CreateProfile from './components/profileForms/CreateProfile';
 
 import {Provider} from 'react-redux';
 import store from './store';
@@ -32,10 +35,14 @@ const App = () => {
 					<NavMenu />
 					<Route exact path='/' component={RecipesPage} />
 					<Switch>
+						<PrivateRoute exact path='/profile-me' component={ProfileDashboard} />
 						<Route exact path='/explore' component={ExplorePage} />
 						<Route exact path='/recipes' component={RecipesPage} />
 						<Route exact path='/recipes/new' component={NewRecipePage} />
-						<Route exact path='/profile/me' component={UsersProfilePage} />
+						{/* <Route exact path='/profile/me' component={UsersProfilePage} /> */}
+						{/* <Route exact path='/create-profile' component={CreateProfilePage} /> */}
+						<PrivateRoute exact path='/create-profile' component={CreateProfile} />
+
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/login' component={Login} />
 					</Switch>
