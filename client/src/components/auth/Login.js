@@ -28,7 +28,7 @@ const Login = ({login, isAuthenticated}) => {
 	};
 
 	if (isAuthenticated) {
-		return <Redirect to='/recipes' />;
+		return <Redirect to='/profile-me' />;
 	}
 
 	return (

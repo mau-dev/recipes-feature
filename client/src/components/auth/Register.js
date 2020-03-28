@@ -14,10 +14,10 @@ const Register = ({register, isAuthenticated}) => {
 		/* the default values  */
 	}
 	const [ formData, setFormData ] = useState({
-		username: '',
 		email: '',
 		password: '',
-		password2: ''
+		password2: '',
+		username: ''
 	});
 	{
 		/*  destructure the formData object  */
@@ -70,7 +70,7 @@ const Register = ({register, isAuthenticated}) => {
 	};
 
 	if (isAuthenticated) {
-		return <Redirect to='/recipes' />;
+		return <Redirect to='/profile-me' />;
 	}
 
 	return (
@@ -119,6 +119,7 @@ const Register = ({register, isAuthenticated}) => {
 						// required
 					/>
 				</div>
+
 				<input type='submit' className='btn btn-primary' value='Sign Up' />
 			</form>
 			<p className='text-center'>
