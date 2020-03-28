@@ -43,7 +43,7 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}
 							</Link>
 						</li>
 						<li>
-							<Link to='/profile/me'>Profile</Link>
+							<Link to='/profile-me'>Profile</Link>
 						</li>
 						<li>
 							<Link to='/login'>Login</Link>
