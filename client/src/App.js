@@ -10,6 +10,8 @@ import NewRecipePage from './pages/NewRecipePage';
 import ExplorePage from './pages/ExplorePage';
 
 import ProfileDashboard from './components/profileDashboard/ProfileDashboard';
+import Recipes from './components/recipes/Recipes';
+
 import CreateProfile from './components/profileForms/CreateProfile';
 import UpdateProfile from './components/profileForms/UpdateProfile';
 
@@ -38,7 +40,7 @@ const App = () => {
 					<Switch>
 						<PrivateRoute exact path='/profile-me' component={ProfileDashboard} />
 						<Route exact path='/explore' component={ExplorePage} />
-						<Route exact path='/recipes' component={RecipesPage} />
+						<Route exact path='/recipes' component={Recipes} />
 						<Route exact path='/recipes/new' component={NewRecipePage} />
 						{/* <Route exact path='/profile/me' component={UsersProfilePage} /> */}
 						{/* <Route exact path='/create-profile' component={CreateProfilePage} /> */}

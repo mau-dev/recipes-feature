@@ -13,6 +13,8 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const DELETE_PROFILE = 'DELETE_PROFILE';
 export const GET_RECIPES = 'GET_RECIPES';
 export const GET_RECIPE = 'GET_RECIPE';
+export const RECIPE_ERROR = 'RECIPE_ERROR';
+
 export const SAVE_RECIPE = 'SAVE_RECIPE';
 export const UNSAVE_RECIPE = 'UNSAVE_RECIPE';
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
