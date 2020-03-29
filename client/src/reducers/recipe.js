@@ -26,11 +26,16 @@ export default function(state = initialState, action) {
 				recipes: payload,
 				loading: false
 			};
+		case CREATE_RECIPE:
+			return {
+				...state,
+				recipes: [ ...state.recipes, payload ],
+				loading: false
+			};
 		case GET_RECIPE:
 			return {
 				...state,
 				recipe: payload,
-				// recipe: payload,
 				loading: false
 			};
 		case RECIPE_ERROR:

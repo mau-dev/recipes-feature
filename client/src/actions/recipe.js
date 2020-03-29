@@ -46,3 +46,26 @@ export const getRecipes = () => async (dispatch) => {
 		});
 	}
 };
+
+// CREATE RECIPE
+export const createRecipe = (formData) => async (dispatch) => {
+	const config = {
+		headers: {
+			'Content-type': 'application/json'
+		}
+	};
+
+	try {
+		const res = await axios.post('/api/recipes', formData, config);
+
+		dispatch({
+			type: CREATE_RECIPE,
+			payload: res.data
+		});
+	} catch (err) {
+		dispatch({
+			type: RECIPE_ERROR,
+			payload: {msg: err.response.statusText, status: err.response.status}
+		});
+	}
+};

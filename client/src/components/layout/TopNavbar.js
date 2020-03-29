@@ -38,7 +38,7 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}
 				<div className='topNav-menu-right'>
 					<ul>
 						<li>
-							<Link to='/recipes/new' className='post-recipe'>
+							<Link to='/create-recipe' className='post-recipe'>
 								Post Recipe
 							</Link>
 						</li>
