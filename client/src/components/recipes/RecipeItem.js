@@ -35,6 +35,7 @@ const RecipeItem = ({
 			<p>{username}</p>
 			{/*<img src={coverPhoto} /> */}
 			<p>{title}</p>
+			<Link to={`recipes/${_id}`}>View recipe</Link>
 			<p>{description}</p>
 			<p>{mealType}</p>
 			<p>{category}</p>
@@ -43,9 +44,9 @@ const RecipeItem = ({
 			<p>{cookingTime}</p>
 			<p>{cookingTime}</p>
 			<p>{measurementsType}</p>
-			<p>qtt{ingredients.quantity}</p>
+			{/* <p>qtt{ingredients.quantity}</p>
 			<p>unit{ingredients.unit}</p>
-			<p>ingredient{ingredients.ingredient}</p>
+			<p>ingredient{ingredients.ingredient}</p> */}
 			<p>{preparation}</p>
 			<p>{date}</p>
 		</Fragment>
@@ -54,11 +55,13 @@ const RecipeItem = ({
 RecipeItem.propTypes = {
 	// getRecipe: PropTypes.func.isRequired,
 	recipe: PropTypes.object.isRequired,
+	// recipes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
 	auth: state.auth
+	// recipes: state.recipes
 });
 
 export default connect(mapStateToProps, {})(RecipeItem);

@@ -13,22 +13,22 @@ import {
 //public routes for: get recipes, get recipe
 //protectet routes for: save recipe, unsave recipe, create, update, delete recipe
 
-//GET RECIPE
-// export const getRecipe = () => async (dispatch) => {
-// 	try {
-// 		const res = await axios.get('/api/recipes/${id}');
+// GET RECIPE
+export const getRecipe = (id) => async (dispatch) => {
+	try {
+		const res = await axios.get(`/api/recipes/${id}`);
 
-// 		dispatch({
-// 			type: GET_RECIPE,
-// 			payload: res.data
-// 		});
-// 	} catch (err) {
-// 		dispatch({
-// 			type: RECIPE_ERROR,
-// 			payload: {msg: err.response.statusText, status: err.response.status}
-// 		});
-// 	}
-// };
+		dispatch({
+			type: GET_RECIPE,
+			payload: res.data
+		});
+	} catch (err) {
+		dispatch({
+			type: RECIPE_ERROR,
+			payload: {msg: err.response.statusText, status: err.response.status}
+		});
+	}
+};
 
 //GET RECIPES
 export const getRecipes = () => async (dispatch) => {

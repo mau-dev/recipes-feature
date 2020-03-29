@@ -20,16 +20,16 @@ export default function(state = initialState, action) {
 	const {type, payload} = action;
 
 	switch (type) {
-		// case GET_RECIPE:
-		// 	return {
-		// 		...state,
-		// 		recipe: payload,
-		// 		loading: false
-		// 	};
 		case GET_RECIPES:
 			return {
 				...state,
 				recipes: payload,
+				loading: false
+			};
+		case GET_RECIPE:
+			return {
+				...state,
+				recipe: payload,
 				// recipe: payload,
 				loading: false
 			};

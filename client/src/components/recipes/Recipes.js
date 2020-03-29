@@ -18,7 +18,7 @@ const Recipes = ({getRecipes, recipe: {recipes, loading}}) => {
 	return (
 		<Fragment>
 			<h1>recipes</h1>
-			<div className='recipes'>{recipes.map((recipe) => <RecipeItem key={recipe._id} recipe={recipe} />)}</div>
+			<div className='recipes'> {recipes.map((recipe) => <RecipeItem key={recipe._id} recipe={recipe} />)}</div>
 		</Fragment>
 	);
 };
