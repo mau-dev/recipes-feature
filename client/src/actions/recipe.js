@@ -48,7 +48,7 @@ export const getRecipes = () => async (dispatch) => {
 };
 
 // CREATE RECIPE
-export const createRecipe = (formData) => async (dispatch) => {
+export const createRecipe = (formData, history) => async (dispatch) => {
 	const config = {
 		headers: {
 			'Content-type': 'application/json'
@@ -62,6 +62,8 @@ export const createRecipe = (formData) => async (dispatch) => {
 			type: CREATE_RECIPE,
 			payload: res.data
 		});
+		// history.push(`/api/recipes/${id}`);
+		history.push('/recipes');
 	} catch (err) {
 		dispatch({
 			type: RECIPE_ERROR,

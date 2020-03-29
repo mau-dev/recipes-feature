@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createRecipe} from '../../actions/recipe';
 
-const RecipeForm = ({createRecipe}) => {
+const RecipeForm = ({createRecipe, history}) => {
 	const [ formData, setFormData ] = useState({
 		title: '',
 		description: '',
@@ -36,7 +36,7 @@ const RecipeForm = ({createRecipe}) => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		createRecipe(formData);
+		createRecipe(formData, history);
 	};
 
 	return (
@@ -167,7 +167,13 @@ const RecipeForm = ({createRecipe}) => {
 };
 
 RecipeForm.propTypes = {
-	createRecipe: PropTypes.func.isRequired
+	createRecipe: PropTypes.func.isRequired,
+	recipe: PropTypes.object.isRequired
 };
+
+// const mapStateToProps = (state) => ({
+// 	recipe: state.recipe
+
+// });
 
 export default connect(null, {createRecipe})(RecipeForm);
