@@ -4,6 +4,7 @@ import {
 	RECIPE_ERROR,
 	SAVE_RECIPE,
 	UNSAVE_RECIPE,
+	CLEAR_SAVES,
 	CREATE_RECIPE,
 	UPDATE_RECIPE,
 	DELETE_RECIPE
@@ -12,6 +13,7 @@ import {
 const initialState = {
 	recipes: [],
 	recipe: null,
+	isSaved: false,
 	loading: true,
 	error: {}
 };
@@ -37,6 +39,30 @@ export default function(state = initialState, action) {
 				...state,
 				recipe: payload,
 				loading: false
+			};
+		case SAVE_RECIPE:
+			return {
+				...state,
+				recipes: state.recipes.map(
+					(recipe) => (recipe._id === payload.id ? {...recipe, saves: payload.saves} : recipe)
+				),
+				isSaved: true,
+				loading: false
+			};
+
+		case UNSAVE_RECIPE:
+			return {
+				...state,
+				recipes: state.recipes.map(
+					(recipe) => (recipe._id === payload.id ? {...recipe, saves: payload.saves} : recipe)
+				),
+				isSaved: false,
+				loading: false
+			};
+		case CLEAR_SAVES:
+			return {
+				...state,
+				isSaved: false
 			};
 		case RECIPE_ERROR:
 			return {

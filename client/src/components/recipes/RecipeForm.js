@@ -15,6 +15,7 @@ const RecipeForm = ({createRecipe, history}) => {
 		measurementsType: '',
 		coverPhoto: '',
 		preparation: '',
+
 		preparationPhotos: ''
 	});
 
@@ -29,6 +30,7 @@ const RecipeForm = ({createRecipe, history}) => {
 		measurementsType,
 		coverPhoto,
 		preparation,
+
 		preparationPhotos
 	} = formData;
 
@@ -54,6 +56,7 @@ const RecipeForm = ({createRecipe, history}) => {
 						// required
 					/>
 				</div>
+
 				<div className='form-group'>
 					<input
 						type='text'
@@ -64,6 +67,7 @@ const RecipeForm = ({createRecipe, history}) => {
 						// required
 					/>
 				</div>
+
 				<div className='form-group'>
 					<input
 						type='number'

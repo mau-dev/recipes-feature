@@ -71,3 +71,37 @@ export const createRecipe = (formData, history) => async (dispatch) => {
 		});
 	}
 };
+
+//SAVE RECIPE
+export const saveRecipe = (id) => async (dispatch) => {
+	try {
+		const res = await axios.put(`/api/recipes/save/${id}`);
+
+		dispatch({
+			type: SAVE_RECIPE,
+			payload: {id, saves: res.data}
+		});
+	} catch (err) {
+		dispatch({
+			type: RECIPE_ERROR,
+			payload: {msg: err.response.statusText, status: err.response.status}
+		});
+	}
+};
+
+// UNSAVE RECIPE
+export const unSaveRecipe = (id) => async (dispatch) => {
+	try {
+		const res = await axios.put(`/api/recipes/unsave/${id}`);
+
+		dispatch({
+			type: UNSAVE_RECIPE,
+			payload: {id, saves: res.data}
+		});
+	} catch (err) {
+		dispatch({
+			type: RECIPE_ERROR,
+			payload: {msg: err.response.statusText, status: err.response.status}
+		});
+	}
+};

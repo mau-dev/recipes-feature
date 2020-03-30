@@ -6,19 +6,21 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'; //done
 export const LOGIN_FAIL = 'LOGIN_FAIL'; //done
 export const LOGOUT = 'LOGOUT'; //done
 export const CLEAR_PROFILE = 'CLEAR_PROFILE'; //done
-export const GET_PROFILE = 'GET_PROFILE';
-export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const GET_PROFILE = 'GET_PROFILE'; //only current profile done
+export const PROFILE_ERROR = 'PROFILE_ERROR'; //done
 export const GET_PROFILES = 'GET_PROFILES';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const DELETE_PROFILE = 'DELETE_PROFILE';
-export const GET_RECIPES = 'GET_RECIPES';
-export const GET_RECIPE = 'GET_RECIPE';
-export const RECIPE_ERROR = 'RECIPE_ERROR';
+export const GET_RECIPES = 'GET_RECIPES'; //done
+export const GET_RECIPE = 'GET_RECIPE'; //done
+export const RECIPE_ERROR = 'RECIPE_ERROR'; //done
 
 export const SAVE_RECIPE = 'SAVE_RECIPE';
 export const UNSAVE_RECIPE = 'UNSAVE_RECIPE';
+export const CLEAR_SAVES = 'CLEAR_SAVES'; // clear IsSaved state from local storage after logout
+
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
-export const CREATE_RECIPE = 'CREATE_RECIPE';
+export const CREATE_RECIPE = 'CREATE_RECIPE'; //done, @to-do: make separate ingredient form
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 
 //search recipe, filter recipes, get categories, search category...

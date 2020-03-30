@@ -20,7 +20,7 @@ const ProfileDashboard = ({getCurrentProfile, auth: {user}, profile: {profile, l
 					<Link to='/settings' className='btn btn-light'>
 						Edit Profile
 					</Link>
-					{/* <img src={user.profilePicture} /> */}
+					<img width='108px' src={user.profilePicture} />
 					<h1>{profile.fullName} </h1>
 					<h1>{profile.identity} </h1>
 					<h1>{profile.home} </h1>
