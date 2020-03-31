@@ -8,29 +8,6 @@ const Recipe = require('../../models/Recipe');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-//create recipe done works
-
-//get recipe by id done works
-
-//update recipe done works
-
-//delete recipe private, done works
-
-//get all recipes done works
-
-//create category
-//update category
-//delete categoty
-
-//create ingredient
-//update ingredient
-//delete ingredient
-
-//get all categories
-//get all ingredients
-
-//get recipes by category
-//get recipes by ingredient
 
 // @route    POST api/recipes
 // @desc     Create a recipe
@@ -89,57 +66,6 @@ router.post(
 	}
 );
 
-// // @route    PUT api/recipe
-// // @desc     Add ingredients to recipe
-// // @access   Private
-// router.put(
-// 	'/:id',
-// 	[
-// 		auth
-// 		//   [
-// 		//     check('quantity', 'quantity is required')
-// 		//       .not()
-// 		//       .isEmpty(),
-// 		//     check('unit', 'measuring unit is required')
-// 		//       .not()
-// 		//       .isEmpty(),
-// 		//     check('ingredient', 'ingredient is required ')
-// 		//       .not()
-// 		//       .isEmpty()
-
-// 		//   ]
-// 	],
-// 	async (req, res) => {
-// 		const errors = validationResult(req);
-// 		if (!errors.isEmpty()) {
-// 			return res.status(400).json({errors: errors.array()});
-// 		}
-
-// 		const {quantity, unit, ingredient} = req.body;
-
-// 		const recipeFields = {};
-// 		recipeFields.id = req.params.id;
-
-// 		const newIngredient = {
-// 			quantity,
-// 			unit,
-// 			ingredient
-// 		};
-
-// 		try {
-// 			const recipe = await Recipe.findById(req.params.id);
-
-// 			recipe.ingredient.push(newIngredient);
-
-// 			await recipe.save();
-
-// 			res.json(recipe);
-// 		} catch (err) {
-// 			console.error(err.message);
-// 			res.status(500).send('Server Error');
-// 		}
-// 	}
-// );
 
 // @route    GET api/recipes
 // @desc     Get all recipes
@@ -344,6 +270,91 @@ router.put('/unsave/:id', auth, async (req, res) => {
 		await recipe.save();
 
 		res.json(recipe.saves);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route    PUT api/recipe/ingredients
+// @desc     Add ingredients
+// @access   Private
+// router.put('/ingredients/:id', auth, async (req, res) => {
+// 	try {
+// 		const recipe = await Recipe.findById({recipe: req.params.id});
+// 		console.log(recipe);
+
+// 		const {quantity, unit, ingredient} = ingredients;
+// 		console.log(quantity);
+// 		const newIngredient = {
+// 			quantity,
+// 			unit,
+// 			ingredient
+// 		};
+
+// 		recipe.ingredients.push(newIngredient);
+
+// 		await recipe.save();
+
+// 		res.json(recipe);
+// 	} catch (err) {
+// 		console.error(err.message);
+// 		res.status(500).send('Server Error');
+// 	}
+// });
+
+// router.get('/recipes/ingredients/:id', (req, res) => {
+
+// 	const recipe = await Recipe.findById({recipe: req.params.id});
+// 		console.log(recipe);
+// 	res.send(`fuck`);
+
+// };
+
+router.put('/save/:id', auth, async (req, res) => {
+	try {
+		const recipe = await Recipe.findById(req.params.id);
+
+		// Check if the recipe has already been saved by user
+		if (recipe.saves.filter((save) => save.user.toString() === req.user.id).length > 0) {
+			return res.status(400).json({msg: 'Recipe already saved'});
+		}
+
+		recipe.saves.unshift({user: req.user.id});
+
+		await recipe.save();
+
+		res.json(recipe.saves);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route    PUT api/recipe/ingredient/;id
+// @desc     Update recipes ingredients
+
+router.put('/ingredient/:id', auth, async (req, res) => {
+	const {quantity, unit, ingredient} = req.body;
+
+	const newIngredient = {
+		quantity,
+		unit,
+		ingredient
+	};
+
+	try {
+		const recipe = await Recipe.findById(req.params.id);
+
+		recipe.ingredients.push(newIngredient);
+
+		await recipe.save();
+
+		res.json(recipe);
+
+		// const recipe = await Recipe.findById(req.params.id);
+		// // res.send(`!!! test ingredients`);
+		// res.json(recipe);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('Server Error');

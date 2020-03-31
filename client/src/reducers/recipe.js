@@ -6,6 +6,7 @@ import {
 	UNSAVE_RECIPE,
 	CLEAR_SAVES,
 	CREATE_RECIPE,
+	ADD_INGREDIENT,
 	UPDATE_RECIPE,
 	DELETE_RECIPE
 } from '../actions/actionTypes';
@@ -35,6 +36,7 @@ export default function(state = initialState, action) {
 				loading: false
 			};
 		case GET_RECIPE:
+		case ADD_INGREDIENT:
 			return {
 				...state,
 				recipe: payload,

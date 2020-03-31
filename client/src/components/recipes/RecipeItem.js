@@ -73,24 +73,26 @@ const RecipeItem = ({
 	return (
 		<Fragment>
 			<Fragment>
-				{ingredientItems}
-				<p>{username}</p>
-				{/* <img src={coverPhoto} /> */}
-				<p>{title}</p>
-				<Link to={`recipes/${_id}`}>View recipe</Link>
-				<p>{description}</p>
-				<p>{mealType}</p>
-				<p>{category}</p>
-				<p>{tags}</p>
-				<p>{dietRestriction}</p>
-				<p>{cookingTime}</p>
-				<p>{cookingTime}</p>
-				<p>{measurementsType}</p>
-				<p>qtt{ingredients[0].quantity}</p>
-				<p>unit{ingredients.unit}</p>
-				<p>ingredient{ingredients.ingredient}</p>
-				<p>{preparation}</p>
-				<p>{date}</p>
+				<div>{ingredientItems}</div>
+				<div className=' recipe-container container'>
+					<p>{username}</p>
+					{/* <img src={coverPhoto} /> */}
+					<p>{title}</p>
+					<Link to={`recipes/${_id}`}>View recipe</Link>
+					<p>{description}</p>
+					<p>{mealType}</p>
+					<p>{category}</p>
+					<p>{tags}</p>
+					<p>{dietRestriction}</p>
+					<p>{cookingTime}</p>
+					<p>{cookingTime}</p>
+					<p>{measurementsType}</p>
+					{/* <p>qtt{ingredients[0].quantity}</p> */}
+					<p>unit{ingredients.unit}</p>
+					<p>ingredient{ingredients.ingredient}</p>
+					<p>{preparation}</p>
+					<p>{date}</p>
+				</div>
 			</Fragment>
 
 			{/* <Fragment> */}

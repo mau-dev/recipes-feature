@@ -1,4 +1,5 @@
 import React, {useState, Fragment} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createRecipe} from '../../actions/recipe';
@@ -166,6 +167,7 @@ const RecipeForm = ({createRecipe, history}) => {
 				</div>
 				<input type='submit' className='btn btn-primary' value='Create recipe' />
 			</form>
+			<Link to='/add-ingredients'>Add ingredients</Link>
 		</Fragment>
 	);
 };

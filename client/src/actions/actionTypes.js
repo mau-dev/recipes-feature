@@ -23,6 +23,8 @@ export const UPDATE_RECIPE = 'UPDATE_RECIPE';
 export const CREATE_RECIPE = 'CREATE_RECIPE'; //done, @to-do: make separate ingredient form
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+
 //search recipe, filter recipes, get categories, search category...
 export const SORT_RECIPES_TITLE_ASC = 'SORT_RECIPES_TITLE_ASC';
 export const SORT_RECIPES_TITLE_DESC = 'SORT_RECIPES_TITLE_DESC';

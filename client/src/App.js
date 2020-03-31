@@ -23,6 +23,7 @@ import {loadUser} from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.scss';
+import IngredientsForm from './components/recipes/IngredientsForm';
 
 const App = () => {
 	useEffect(() => {
@@ -48,6 +49,8 @@ const App = () => {
 						{/* <Route exact path='/profile/me' component={UsersProfilePage} /> */}
 						{/* <Route exact path='/create-profile' component={CreateProfilePage} /> */}
 						<PrivateRoute exact path='/create-profile' component={CreateProfile} />
+						<PrivateRoute exact path='/add-ingredients' component={IngredientsForm} />
+
 						<PrivateRoute exact path='/settings' component={UpdateProfile} />
 						<PrivateRoute exact path='/create-recipe' component={RecipeForm} />
 						<Route exact path='/register' component={Register} />

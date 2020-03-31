@@ -6,6 +6,7 @@ import {
 	SAVE_RECIPE,
 	UNSAVE_RECIPE,
 	CREATE_RECIPE,
+	ADD_INGREDIENT,
 	UPDATE_RECIPE,
 	DELETE_RECIPE
 } from '../actions/actionTypes';
@@ -63,7 +64,7 @@ export const createRecipe = (formData, history) => async (dispatch) => {
 			payload: res.data
 		});
 		// history.push(`/api/recipes/${id}`);
-		history.push('/recipes');
+		// history.push('/recipes');
 	} catch (err) {
 		dispatch({
 			type: RECIPE_ERROR,
@@ -71,6 +72,31 @@ export const createRecipe = (formData, history) => async (dispatch) => {
 		});
 	}
 };
+
+// // add ingredients
+// export const addIngredient = (id, formData, history) => async (dispatch) => {
+// 	const config = {
+// 		headers: {
+// 			'Content-type': 'application/json'
+// 		}
+// 	};
+
+// 	try {
+// 		const res = await axios.put(`/api/recipes/${id}`, formData, config);
+
+// 		dispatch({
+// 			type: ADD_INGREDIENT,
+// 			payload: {id, ingredients: res.data}
+// 		});
+// 		// history.push(`/api/recipes/${id}`);
+// 		// history.push('/recipes');
+// 	} catch (err) {
+// 		dispatch({
+// 			type: RECIPE_ERROR,
+// 			payload: {msg: err.response.statusText, status: err.response.status}
+// 		});
+// 	}
+// };
 
 //SAVE RECIPE
 export const saveRecipe = (id) => async (dispatch) => {

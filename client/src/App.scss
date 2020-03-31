@@ -1,177 +1,162 @@
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
-* a{
-  text-decoration: none;
-  text-decoration-color: none;
-  color: inherit;
-
+* a {
+	text-decoration: none;
+	text-decoration-color: none;
+	color: inherit;
 }
 
 a:-webkit-any-link {
-  color: none;
+	color: none;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  z-index: 1;
-  width: 100%;
-  height: 64px;
-  top: 0;
-  border-bottom: solid 1px rgb(230, 230, 230);
-  opacity: 0.9;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+	z-index: 1;
+	width: 100%;
+	height: 64px;
+	top: 0;
+	border-bottom: solid 1px rgb(230, 230, 230);
+	opacity: 0.9;
 }
 
 .abv-logo {
-  cursor: pointer;
-  height: 64px;
-  width: 124px;
-  object-fit: contain;
-
-
+	cursor: pointer;
+	height: 64px;
+	width: 124px;
+	object-fit: contain;
 }
 
 .search-box-outer {
-  width: 280px;
-  height: 48px;
-  margin: 8px 16px;
-  border: 1px solid rgb(230, 230, 230);
-  border-radius: 4px;
+	width: 280px;
+	height: 48px;
+	margin: 8px 16px;
+	border: 1px solid rgb(230, 230, 230);
+	border-radius: 4px;
 }
 
 .search-icon-div {
-  display: flex;
-  width: 40px;
-  height: 100%;
-  padding: 0 8px;
+	display: flex;
+	width: 40px;
+	height: 100%;
+	padding: 0 8px;
 }
 
 .search-input-div {
-  width: 250px;
+	width: 250px;
 
-  input {
-    width: 250px;
-    height: 100%;
-    padding: 0 8px;
-    border: none;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif !important;
-
-
-  }
+	input {
+		width: 250px;
+		height: 100%;
+		padding: 0 8px;
+		border: none;
+		font-size: 16px;
+		font-family: 'Poppins', sans-serif !important;
+	}
 }
 
 .fa-search {
-  display: flex;
-  align-self: center;
+	display: flex;
+	align-self: center;
 }
 
 .topNav-menu-left {
-  display: flex;
+	display: flex;
 }
 
-
 .topNav-menu-right {
-  display: flex;
-  padding: inherit;
+	display: flex;
+	padding: inherit;
 
+	ul {
+		list-style: none;
+		display: inline-flex;
+		align-self: center;
+		padding: 0;
+		margin-right: 1rem;
 
+		li {
+			padding: 0 6px;
 
-  ul {
-    list-style: none;
-    display: inline-flex;
-    align-self: center;
-    padding: 0;
-    margin-right: 1rem;
+			&:first-of-type a {
+				border: 1px solid rgb(230, 230, 230);
+				border-radius: 4px;
+				align-self: center;
+				padding: 8px 12px;
+			}
 
-    li {
-      padding: 0 6px;
+			&:last-of-type a {
+				color: rgb(47, 119, 191);
+			}
 
+			a {
+				text-decoration: none;
+				color: rgb(51, 51, 51);
+				padding: 8px 12px;
+				border-radius: 4px;
+				font-size: 0.9em;
+				font-weight: bold;
 
-      &:first-of-type a {
-        border: 1px solid rgb(230, 230, 230);
-        border-radius: 4px;
-        align-self: center;
-        padding: 8px 12px;
-      }
-
-      &:last-of-type a {
-        color: rgb(47, 119, 191);
-
-      }
-
-      a {
-
-        text-decoration: none;
-        color: rgb(51, 51, 51);
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 0.9em;
-        font-weight: bold;
-
-
-
-        &:hover {
-          background-color: rgb(47, 119, 191);
-          color: rgb(255, 255, 255);
-          border: none !important;
-        }
-
-
-      }
-    }
-
-  }
-
+				&:hover {
+					background-color: rgb(47, 119, 191);
+					color: rgb(255, 255, 255);
+					border: none !important;
+				}
+			}
+		}
+	}
 }
 
 .nav-menu {
-  height: 50px;
-  background-color: #F8F9FB;
-  display: flex;
-  justify-content: center;
+	height: 50px;
+	background-color: #f8f9fb;
+	display: flex;
+	justify-content: center;
 
-  ul {
-    list-style: none;
-    display: inline-flex;
-    align-self: center;
-    justify-content: center;
+	ul {
+		list-style: none;
+		display: inline-flex;
+		align-self: center;
+		justify-content: center;
 
-    li {
-      padding: 0 12px;
-      // text-transform: uppercase;
-      font-weight: 700;
-      color: #1BAAB4;
-    }
-  }
-
-
+		li {
+			padding: 0 12px;
+			// text-transform: uppercase;
+			font-weight: 700;
+			color: #1baab4;
+		}
+	}
 }
 
 .form-wrap {
-  width: 480px;
-  height: 400px;
-  border: 1px solid rgb(230, 230, 230);
-  border-radius: 4px;
-  margin: 10vh auto;
+	width: 480px;
+	height: 400px;
+	border: 1px solid rgb(230, 230, 230);
+	border-radius: 4px;
+	margin: 10vh auto;
 
-  .form-group {
-    display: flex;
+	.form-group {
+		display: flex;
 
-    input {
-      width: 300px;
-      margin: 0 auto;
-    }
-  }
-
+		input {
+			width: 300px;
+			margin: 0 auto;
+		}
+	}
 }
 
 .text-center {
-  text-align: center;
+	text-align: center;
+}
+
+.recipe-container {
+	width: 800px;
+	margin: 0 auto;
 }
