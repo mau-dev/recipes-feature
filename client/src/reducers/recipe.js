@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
 				loading: false
 			};
 		case GET_RECIPE:
-		case ADD_INGREDIENT:
+		// case ADD_INGREDIENT:
 			return {
 				...state,
 				recipe: payload,

@@ -334,31 +334,31 @@ router.put('/save/:id', auth, async (req, res) => {
 // @route    PUT api/recipe/ingredient/;id
 // @desc     Update recipes ingredients
 
-router.put('/ingredient/:id', auth, async (req, res) => {
-	const {quantity, unit, ingredient} = req.body;
+// router.put('/ingredient/:id', auth, async (req, res) => {
+// 	const {quantity, unit, ingredient} = req.body;
 
-	const newIngredient = {
-		quantity,
-		unit,
-		ingredient
-	};
+// 	const newIngredient = {
+// 		quantity,
+// 		unit,
+// 		ingredient
+// 	};
 
-	try {
-		const recipe = await Recipe.findById(req.params.id);
+// 	try {
+// 		const recipe = await Recipe.findById(req.params.id);
 
-		recipe.ingredients.push(newIngredient);
+// 		recipe.ingredients.push(newIngredient);
 
-		await recipe.save();
+// 		await recipe.save();
 
-		res.json(recipe);
+// 		res.json(recipe);
 
-		// const recipe = await Recipe.findById(req.params.id);
-		// // res.send(`!!! test ingredients`);
-		// res.json(recipe);
-	} catch (err) {
-		console.error(err.message);
-		res.status(500).send('Server Error');
-	}
-});
+// 		// const recipe = await Recipe.findById(req.params.id);
+// 		// // res.send(`!!! test ingredients`);
+// 		// res.json(recipe);
+// 	} catch (err) {
+// 		console.error(err.message);
+// 		res.status(500).send('Server Error');
+// 	}
+// });
 
 module.exports = router;

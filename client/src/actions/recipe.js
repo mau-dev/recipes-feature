@@ -12,7 +12,7 @@ import {
 } from '../actions/actionTypes';
 
 //public routes for: get recipes, get recipe
-//protectet routes for: save recipe, unsave recipe, create, update, delete recipe
+//protected routes for: save recipe, unsave recipe, create, update, delete recipe
 
 // GET RECIPE
 export const getRecipe = (id) => async (dispatch) => {
@@ -49,7 +49,7 @@ export const getRecipes = () => async (dispatch) => {
 };
 
 // CREATE RECIPE
-export const createRecipe = (formData, history) => async (dispatch) => {
+export const createRecipe = (formData) => async (dispatch) => {
 	const config = {
 		headers: {
 			'Content-type': 'application/json'
@@ -73,30 +73,31 @@ export const createRecipe = (formData, history) => async (dispatch) => {
 	}
 };
 
-// // add ingredients
-// export const addIngredient = (id, formData, history) => async (dispatch) => {
-// 	const config = {
-// 		headers: {
-// 			'Content-type': 'application/json'
-// 		}
-// 	};
+// add ingredients
+export const addIngredient = (formData, history) => async (dispatch) => {
+	const config = {
+		headers: {
+			'Content-type': 'application/json'
+		}
+	};
 
-// 	try {
-// 		const res = await axios.put(`/api/recipes/${id}`, formData, config);
+	try {
+		const res = await axios.put(`/api/recipes`, formData, config);
 
-// 		dispatch({
-// 			type: ADD_INGREDIENT,
-// 			payload: {id, ingredients: res.data}
-// 		});
-// 		// history.push(`/api/recipes/${id}`);
-// 		// history.push('/recipes');
-// 	} catch (err) {
-// 		dispatch({
-// 			type: RECIPE_ERROR,
-// 			payload: {msg: err.response.statusText, status: err.response.status}
-// 		});
-// 	}
-// };
+		dispatch({
+			type: ADD_INGREDIENT,
+			// payload: {id, ingredients: res.data}
+			payload: res.data
+		});
+		// history.push(`/api/recipes/${id}`);
+		// history.push('/recipes');
+	} catch (err) {
+		dispatch({
+			type: RECIPE_ERROR,
+			payload: {msg: err.response.statusText, status: err.response.status}
+		});
+	}
+};
 
 //SAVE RECIPE
 export const saveRecipe = (id) => async (dispatch) => {
