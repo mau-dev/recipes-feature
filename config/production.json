@@ -1,0 +1,4 @@
+{
+	"mongoURI": "mongodb+srv://Materia:materiaabillionveg@abillionvegrecipes-3rdzt.mongodb.net/test?retryWrites=true&w=majority",
+	"jwtSecret": "mysecrettokenabillionveg"
+}
