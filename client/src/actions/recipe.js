@@ -74,30 +74,30 @@ export const createRecipe = (formData) => async (dispatch) => {
 };
 
 // add ingredients
-export const addIngredient = (formData, history) => async (dispatch) => {
-	const config = {
-		headers: {
-			'Content-type': 'application/json'
-		}
-	};
+// export const addIngredient = (id, formData, history) => async (dispatch) => {
+// 	const config = {
+// 		headers: {
+// 			'Content-type': 'application/json'
+// 		}
+// 	};
 
-	try {
-		const res = await axios.put(`/api/recipes`, formData, config);
+// 	try {
+// 		const res = await axios.patch(`/api/recipes/${id}`, formData, config);
 
-		dispatch({
-			type: ADD_INGREDIENT,
-			// payload: {id, ingredients: res.data}
-			payload: res.data
-		});
-		// history.push(`/api/recipes/${id}`);
-		// history.push('/recipes');
-	} catch (err) {
-		dispatch({
-			type: RECIPE_ERROR,
-			payload: {msg: err.response.statusText, status: err.response.status}
-		});
-	}
-};
+// 		dispatch({
+// 			type: ADD_INGREDIENT,
+// 			payload: {id, ingredients: res.data}
+// 			// payload: res.data
+// 		});
+// 		// history.push(`/api/recipes/${id}`);
+// 		// history.push('/recipes');
+// 	} catch (err) {
+// 		dispatch({
+// 			type: RECIPE_ERROR,
+// 			payload: {msg: err.response.statusText, status: err.response.status}
+// 		});
+// 	}
+// };
 
 //SAVE RECIPE
 export const saveRecipe = (id) => async (dispatch) => {

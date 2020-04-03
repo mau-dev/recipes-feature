@@ -18,7 +18,7 @@ export class MainStepForm extends Component {
 		coverPhoto: '',
 		preparation: [],
 		preparationPhotos: [],
-		ingredients: []
+		ingredients: [{quantity: '', unit: '', ingredient: ''}],
 		// }
 
 		// state = {

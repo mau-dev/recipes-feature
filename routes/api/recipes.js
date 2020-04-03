@@ -276,40 +276,6 @@ router.put('/unsave/:id', auth, async (req, res) => {
 	}
 });
 
-// @route    PUT api/recipe/ingredients
-// @desc     Add ingredients
-// @access   Private
-// router.put('/ingredients/:id', auth, async (req, res) => {
-// 	try {
-// 		const recipe = await Recipe.findById({recipe: req.params.id});
-// 		console.log(recipe);
-
-// 		const {quantity, unit, ingredient} = ingredients;
-// 		console.log(quantity);
-// 		const newIngredient = {
-// 			quantity,
-// 			unit,
-// 			ingredient
-// 		};
-
-// 		recipe.ingredients.push(newIngredient);
-
-// 		await recipe.save();
-
-// 		res.json(recipe);
-// 	} catch (err) {
-// 		console.error(err.message);
-// 		res.status(500).send('Server Error');
-// 	}
-// });
-
-// router.get('/recipes/ingredients/:id', (req, res) => {
-
-// 	const recipe = await Recipe.findById({recipe: req.params.id});
-// 		console.log(recipe);
-// 	res.send(`fuck`);
-
-// };
 
 router.put('/save/:id', auth, async (req, res) => {
 	try {
@@ -331,34 +297,34 @@ router.put('/save/:id', auth, async (req, res) => {
 	}
 });
 
-// @route    PUT api/recipe/ingredient/;id
+// @route    PATCH api/recipes/;id
 // @desc     Update recipes ingredients
 
-// router.put('/ingredient/:id', auth, async (req, res) => {
-// 	const {quantity, unit, ingredient} = req.body;
+router.patch('/:id', auth, async (req, res) => {
+	const {quantity, unit, ingredient} = req.body;
 
-// 	const newIngredient = {
-// 		quantity,
-// 		unit,
-// 		ingredient
-// 	};
+	const newIngredient = {
+		quantity,
+		unit,
+		ingredient
+	};
 
-// 	try {
-// 		const recipe = await Recipe.findById(req.params.id);
+	try {
+		const recipe = await Recipe.findById(req.params.id);
 
-// 		recipe.ingredients.push(newIngredient);
+		recipe.ingredients.push(newIngredient);
 
-// 		await recipe.save();
+		await recipe.save();
 
-// 		res.json(recipe);
+		res.json(recipe);
 
-// 		// const recipe = await Recipe.findById(req.params.id);
-// 		// // res.send(`!!! test ingredients`);
-// 		// res.json(recipe);
-// 	} catch (err) {
-// 		console.error(err.message);
-// 		res.status(500).send('Server Error');
-// 	}
-// });
+		// const recipe = await Recipe.findById(req.params.id);
+		// // res.send(`!!! test ingredients`);
+		// res.json(recipe);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
 
 module.exports = router;

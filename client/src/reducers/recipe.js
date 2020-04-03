@@ -10,12 +10,14 @@ import {
 	UPDATE_RECIPE,
 	DELETE_RECIPE
 } from '../actions/actionTypes';
+import {reducer as reduxFormReducer} from 'redux-form';
 
 const initialState = {
 	recipes: [],
 	recipe: null,
 	isSaved: false,
 	loading: true,
+	// form: reduxFormReducer,
 	error: {}
 };
 
@@ -33,10 +35,17 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				recipes: [ ...state.recipes, payload ],
+				// form: [...state.ingredients],
+				loading: false
+			};
+		case ADD_INGREDIENT:
+			return {
+				...state,
+				recipe: payload,
 				loading: false
 			};
 		case GET_RECIPE:
-		// case ADD_INGREDIENT:
+			// case ADD_INGREDIENT:
 			return {
 				...state,
 				recipe: payload,

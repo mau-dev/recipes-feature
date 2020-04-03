@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import FieldArraysForm from '../IngredientsGroupForm';
 
 export class StepTwo extends React.Component {
 	continue = (e) => {
@@ -16,19 +17,11 @@ export class StepTwo extends React.Component {
 		return (
 			<Fragment>
 				<div>
-					<form className=''>
-						<div className='form-group'>
-							<input
-								type='text'
-								placeholder='ingredients'
-								name='ingredients'
-								value={values.ingredients}
-								onChange={(e) => onChange(e)}
-								// required
-							/>
-						</div>
-					</form>
+			
+				<FieldArraysForm />
+
 				</div>
+
 				<button onClick={this.back}>back</button>
 				<button onClick={this.continue}>continue</button>
 			</Fragment>
@@ -37,3 +30,5 @@ export class StepTwo extends React.Component {
 }
 
 export default StepTwo;
+
+
