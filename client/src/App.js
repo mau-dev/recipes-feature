@@ -44,7 +44,8 @@ const App = () => {
 				<Fragment>
 					<TopNavbar />
 					<NavMenu />
-					<Route exact path='/' component={RecipesPage} />
+					{/* <Route exact path='/' component={RecipesPage} /> */}
+					<Route exact path='/' component={Recipes} />
 					<Switch>
 						<PrivateRoute exact path='/profile-me' component={ProfileDashboard} />
 						<Route exact path='/explore' component={ExplorePage} />

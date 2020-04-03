@@ -7,6 +7,7 @@ import {
 	CLEAR_SAVES,
 	CREATE_RECIPE,
 	ADD_INGREDIENT,
+	SEARCH_RECIPES,
 	UPDATE_RECIPE,
 	DELETE_RECIPE
 } from '../actions/actionTypes';
@@ -51,6 +52,15 @@ export default function(state = initialState, action) {
 				recipe: payload,
 				loading: false
 			};
+			// case SEARCH_RECIPES:
+			// // case ADD_INGREDIENT:
+			// return {
+			// 	...state,
+			// 	recipes: state.recipes.filter(
+			// 		(recipe) => (recipe.title.includes(keyword) || recipe.ingredients.ingreidient.includes(keyword) )
+			// 	),
+			// 	loading: false
+			// };
 		case SAVE_RECIPE:
 			return {
 				...state,

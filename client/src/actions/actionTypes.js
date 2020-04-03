@@ -18,12 +18,15 @@ export const RECIPE_ERROR = 'RECIPE_ERROR'; //done
 export const SAVE_RECIPE = 'SAVE_RECIPE';
 export const UNSAVE_RECIPE = 'UNSAVE_RECIPE';
 export const CLEAR_SAVES = 'CLEAR_SAVES'; // clear IsSaved state from local storage after logout
+export const SEARCH_RECIPES = 'SEARCH_RECIPES';
+
 
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
 export const CREATE_RECIPE = 'CREATE_RECIPE'; //done, @to-do: make separate ingredient form
 export const DELETE_RECIPE = 'DELETE_RECIPE';
 
 export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+
 
 //search recipe, filter recipes, get categories, search category...
 export const SORT_RECIPES_TITLE_ASC = 'SORT_RECIPES_TITLE_ASC';

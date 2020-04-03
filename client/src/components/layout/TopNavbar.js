@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import logo from '../../images/abv-logo.png';
 import '../../App.scss';
 
+// import Search from '../Search.js';
+
 //@to do: finalise the right menu logged in vs logged out
 //logged in has: user profilepic, post review/post recipe btn
 
@@ -30,7 +32,8 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}
 						<div className='search-icon-div'>
 							<i className='fas fa-search' />
 							<div className='search-input-div'>
-								<input type='search' placeholder='Search' name='search' className='searchInput' />
+							<input type='search' placeholder='Search' name='search' className='searchInput' />
+							{/* <Search /> */}
 							</div>
 						</div>
 					</div>

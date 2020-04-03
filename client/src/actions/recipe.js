@@ -6,6 +6,7 @@ import {
 	SAVE_RECIPE,
 	UNSAVE_RECIPE,
 	CREATE_RECIPE,
+	SEARCH_RECIPES,
 	ADD_INGREDIENT,
 	UPDATE_RECIPE,
 	DELETE_RECIPE
@@ -132,3 +133,20 @@ export const unSaveRecipe = (id) => async (dispatch) => {
 		});
 	}
 };
+
+// //SEARCH RECIPES
+// export const searchRecipes = () => async (dispatch) => {
+// 	try {
+// 		const res = await axios.get('/api/recipes');
+
+// 		dispatch({
+// 			type: SEARCH_RECIPES,
+// 			payload: res.data
+// 		});
+// 	} catch (err) {
+// 		dispatch({
+// 			type: RECIPE_ERROR,
+// 			payload: {msg: err.response.statusText, status: err.response.status}
+// 		});
+// 	}
+// };
