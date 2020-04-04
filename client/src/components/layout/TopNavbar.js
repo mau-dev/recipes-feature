@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
@@ -6,6 +6,8 @@ import {logout} from '../../actions/auth';
 import {getCurrentProfile} from '../../actions/profile';
 import PropTypes from 'prop-types';
 
+
+import SimpleMenu from './NavDropdown';
 import logo from '../../images/abv-logo.png';
 import '../../App.scss';
 
@@ -20,7 +22,46 @@ import '../../App.scss';
 
 //@to-do later: separate components and containers for everything
 
+export const MenuLoggedInUser = () => (
+	<div className='topNav-menu-right'>
+	<ul>
+		<li>
+			<Link to='/create-recipe' className='post-recipe'>
+				Post Recipe
+			</Link>
+		</li>
+		<li>
+			<SimpleMenu />
+		</li> 
+	
+	</ul>
+	</div>
+);
+
+export const MenuGuestUser  = () => (
+	<div className='topNav-menu-right'>
+<ul>
+<li>
+<Link to='/create-recipe' className='post-recipe'>
+	Post Recipe
+</Link>
+</li>
+<li>
+<Link to='/login'>Login</Link>
+</li>
+<li>
+<Link to='/register'>Sign Up</Link>
+</li>
+
+</ul>
+</div>
+);
+
+
+
 const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}) => {
+
+
 	return (
 		<div>
 			<nav className='navbar top-nav'>
@@ -38,29 +79,9 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}
 						</div>
 					</div>
 				</div>
-				<div className='topNav-menu-right'>
-					<ul>
-						<li>
-							<Link to='/create-recipe' className='post-recipe'>
-								Post Recipe
-							</Link>
-						</li>
-						<li>
-							<Link to='/profile-me'>Profile</Link>
-						</li>
-						<li>
-							<Link to='/login'>Login</Link>
-						</li>
-						<li>
-							<Link to='/register'>Sign Up</Link>
-						</li>
-						<li>
-							<a onClick={logout} href='#!'>
-								Logout
-							</a>
-						</li>
-					</ul>
-				</div>
+				{isAuthenticated ? <MenuLoggedInUser /> : <MenuGuestUser /> }
+     
+				
 			</nav>
 		</div>
 	);
