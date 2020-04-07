@@ -18,8 +18,9 @@ const Recipe = ({getRecipe, recipe: {recipe, loading}, match}) => {
 		<h1>loading</h1>
 	) : (
 		<Fragment>
-			<Link to='/recipes'>recipes</Link>
+			
 			<RecipeItem recipe={recipe} />
+			<Link to='/recipes'>back to recipes</Link>
 		</Fragment>
 	);
 };

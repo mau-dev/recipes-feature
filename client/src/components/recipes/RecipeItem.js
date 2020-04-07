@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Moment from 'react-moment';
@@ -79,7 +79,7 @@ const RecipeItem = ({
 					<p>{username}</p>
 					<img src={coverPhoto} />
 					<p>{title}</p>
-					<Link to={`recipes/${_id}`}>View recipe</Link>
+					{/* <Link to={`recipes/${_id}`}>View recipe</Link> */}
 					<p>{description}</p>
 					<p>{mealType}</p>
 					<p>{category}</p>

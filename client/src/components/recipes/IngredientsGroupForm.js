@@ -63,9 +63,9 @@ const FieldArraysForm = props => {
  
       <FieldArray name="ingredients" component={renderIngredients} />
       <div>
-        <button type="submit" disabled={submitting}>Submit</button>
+        <button type="submit" disabled={submitting}>Submit Ingredient list</button>
         <button type="button"disabled={pristine || submitting}onClick={reset}>
-          Clear Values
+          Delete Ingredient List
         </button>
       </div>
     </form>
