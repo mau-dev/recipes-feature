@@ -44,11 +44,13 @@ I mainly focused to get the redux work done and connecting all actions to the co
 The most important actions are handled with redux: login, register, create_profile, update_profile, get_recipes, get_recipe(by id), create_recipe, save and unsave recipe.
 Hence, I think I should have separate the save and unsave logic, and use redux only to communicate with the database for save and unsave actions, but for the presentational part that toggles different icon (empty of field bookmark icon) based on saved or not condition, should have been handled by the component state.
 
-I was changing my initial form for creating recipes, as I wanted one separate form to handle the ingredients input as an array of objects. There is a redux form for the group fields for adding ingredients, but that part is not properly connected to the redux action for create_recipe yet.
 
-
-### Problems 
-As an array of separate objects, I was not able to handle the ingredients form together with the rest of the recipe body. Initially, I planned to have separate action and separate routes that will patch the recipe, with adding the ingredients but I realized it will be a bad experience to create part of the recipe, and then updating it. I needed a form that will add or remove as much more ingredients needed, and nest all the values in one group index when a row is created.
+### Features 
+The recipes are accessed from a public route, as on the abillionveg website where guest users can see articles.
+To create a recipe is a protected route and only accessed by registered users. If not logged in the user will be redirected to register/login route when trying to click on "Post Recipe".
+First-time users can create a user account, then they are redirected to set up their profile. On their profile dashboard, there is a link to the settings where they can update their profile.
+Logged in users can create recipes. When creating a recipe, there is a group form for the array of ingredients. User can add and remove ingredients while creating the recipe, once done with adding ingredients to the list should click on the "Submit ingredient list" button before proceeding with the rest of the form to save the added ingredients to the recipe.
+Users can save a recipe as a bookmark. 
 
 
 ### What would I differently
