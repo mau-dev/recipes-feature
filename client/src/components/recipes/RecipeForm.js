@@ -5,9 +5,7 @@ import {connect} from 'react-redux';
 import {createRecipe} from '../../actions/recipe';
 // import IngredientsGroup from './IngredientsGroup';
 import FieldArraysForm from './IngredientsGroupForm';
-import showResults from "./showResults";
-
-
+// import showResults from "./showResults";
 
 
 const RecipeForm = ({createRecipe, history, handleSubmit}) => {
@@ -23,8 +21,6 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 		coverPhoto: '',
 		preparation: [''],
 		ingredients: [{quantity: '', unit: '', ingredient: '',}],
-		
-
 		preparationPhotos: ['']
 	});
 
@@ -47,6 +43,10 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 		preparationPhotos
 	} = formData;
 
+
+
+
+
 	const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
 	const onSubmit = (e) => {
@@ -56,13 +56,14 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 
 
 	return (
+		
 		<Fragment>
 			{/* <div className='form-wrap'> */}
 			<h1 className='text-center'>Post recipe</h1>
 			{/* <IngredientsGroup/> */}
-			{/* <FieldArraysForm onSubmit={showResults}/> */}
-			<FieldArraysForm />
-			
+			{/* <FieldArraysForm onSubmit={pushIngredients}/> */}
+			<FieldArraysForm onSubmit={(values) => setFormData(values)}/>
+	
 		
 
 			<form className='' onSubmit={(e) => onSubmit(e)}>
@@ -190,6 +191,7 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 			{/* <Link to='/add-ingredients'>Add ingredients</Link> */}
 		</Fragment>
 	);
+	
 };
 
 RecipeForm.propTypes = {
