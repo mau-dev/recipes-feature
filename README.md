@@ -1,10 +1,11 @@
 # Recipe feature
+* Preview app here: https://quiet-refuge-44149.herokuapp.com/recipes
 
 ### Technologies used:
 * Node.js
 * MongoDB
 * Mongoose
-* React
+* React.js
 * Redux
 * Express.js
 
