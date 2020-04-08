@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-
+import { Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
-    <label>{label}</label>
+    {/* <label>{label}</label> */}
     <div>
       <input {...input} type={type} placeholder={label} />
       {touched && error && <span>{error}</span>}
@@ -18,41 +18,58 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 
 const renderIngredients= ({ fields, meta: { touched, error, submitFailed }}) => (
     <div>
-  <ul>
+  <ul style={{listStyle: 'none'}}>
    
     {fields.map((ingredient, index) => (
       <li key={index}>
-       
-        <h4>Ingredient {index + 1}:</h4>
+        
+        
+        <p>Ingredient {index + 1}:</p>
+        <Row form>
+        <Col md={3}>
         <Field
           name={`${ingredient}.quantity`}
           type="text"
           component={renderField}
+          placeholder="Amount"
           label="quantuty"
         />
+        </Col>
+         <Col md={3}>
         <Field
           name={`${ingredient}.unit`}
           type="text"
           component={renderField}
+          placeholder="Unit"
           label="unit"
         />
+        </Col>
+         <Col md={3}>
         <Field
           name={`${ingredient}.ingredient`}
           type="text"
           component={renderField}
-          label="ingredient"
-          placeholder="ingredient"
+                                                                                            
+          placeholder="Ingredient"
         />
-        <button title="Remove ingredient"
+        </Col>
+         <Col md={3}>
+        <Button  outline color="danger" title="Remove ingredient"
         onClick={() => fields.remove(index)}
-        >Remove ingredient</button>
+        >Remove ingredient</Button>
+        </Col>
+        </Row> 
       </li>
+      
     ))}
   </ul>
+  <br></br>
    <div>
-   <button type="button" onClick={() => fields.push({})}>Add Ingredient</button>
+   <Button type="button" color="info" onClick={() => fields.push({})}>Add Ingredient</Button>
+   
    {(touched || submitFailed) && error && <span>{error}</span>}
  </div>
+ <br></br>
  </div>
 );
 
@@ -63,13 +80,23 @@ const FieldArraysForm = props => {
  
       <FieldArray name="ingredients" component={renderIngredients} />
       <div>
-        <button type="submit" disabled={submitting}>Submit Ingredient list</button>
-        <button type="button"disabled={pristine || submitting}onClick={reset}>
-          Delete Ingredient List
-        </button>
+        <Row>
+        <Col md={6}>
+        <Button  size="md" block  color="success" type="submit" disabled={submitting}>Submit Ingredient list</Button>
+        </Col>
+        <Col md={6}>
+        <Button  size="md" block  color="danger" type="button"disabled={pristine || submitting}onClick={reset}>
+          Clear Ingredient List
+        </Button>
+        </Col>
+        </Row>
       </div>
+      <br></br>
     </form>
   );
 };
 
 export default reduxForm({form: 'fieldArrays', })(FieldArraysForm);
+
+
+

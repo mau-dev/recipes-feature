@@ -5,22 +5,11 @@ import {connect} from 'react-redux';
 import {logout} from '../../actions/auth';
 import {getCurrentProfile} from '../../actions/profile';
 import PropTypes from 'prop-types';
-
-
 import SimpleMenu from './NavDropdown';
 import logo from '../../images/abv-logo.png';
 import '../../App.scss';
-
 // import Search from '../Search.js';
 
-//@to do: finalise the right menu logged in vs logged out
-//logged in has: user profilepic, post review/post recipe btn
-
-//profilePic on logged in to lead to: profile route, (inside edit profile route link), user's recipes, user's saved recipes by other, and logout
-
-//logged out: sign up, login links, post a review/recipe btn
-
-//@to-do later: separate components and containers for everything
 
 export const MenuLoggedInUser = () => (
 	<div className='topNav-menu-right'>
@@ -64,7 +53,7 @@ const TopNavbar = ({auth: {isAuthenticated, loading}, logout, getCurrentProfile}
 
 	return (
 		<div>
-			<nav className='navbar top-nav'>
+			<nav className=' top-nav'>
 				<div className='topNav-menu-left'>
 					<Link to='/'>
 						<img src={logo} className='abv-logo' alt='logo' />

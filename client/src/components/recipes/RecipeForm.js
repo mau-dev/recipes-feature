@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createRecipe} from '../../actions/recipe';
-// import IngredientsGroup from './IngredientsGroup';
 import FieldArraysForm from './IngredientsGroupForm';
-// import showResults from "./showResults";
+import { Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 const RecipeForm = ({createRecipe, history, handleSubmit}) => {
@@ -57,18 +56,20 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 
 	return (
 		
-		<Fragment>
-			{/* <div className='form-wrap'> */}
-			<h1 className='text-center'>Post recipe</h1>
-			{/* <IngredientsGroup/> */}
+		<Fragment >
+		
+			<div className='recipe-form'> 
+			<h4 className='text-center'>Create recipe</h4>
+		
 			{/* <FieldArraysForm onSubmit={pushIngredients}/> */}
 			<FieldArraysForm onSubmit={(values) => setFormData(values)}/>
+			
 	
 		
 
-			<form className='' onSubmit={(e) => onSubmit(e)}>
-				<div className='form-group'>
-					<input
+			<Form onSubmit={(e) => onSubmit(e)}>
+				<FormGroup>
+					<Input
 						type='text'
 						placeholder='Recipe title'
 						name='title'
@@ -76,57 +77,41 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
+				</FormGroup>
 
-				<div className='form-group'>
-					<input
-						type='text'
+				<FormGroup>
+					<Input
+						type='textarea'
 						placeholder='Recipe description'
 						name='description'
 						value={description}
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
-				
+				</FormGroup>
 
-				<div className='form-group'>
-					<input
-						type='number'
-						placeholder='Cooking time'
-						name='cookingTime'
-						value={cookingTime}
-						onChange={(e) => onChange(e)}
-						// required
-					/>
-				</div>
-				<div className='form-group'>
-					<input
-						type='url'
-						placeholder='Cover photo'
-						name='coverPhoto'
-						value={coverPhoto}
-						onChange={(e) => onChange(e)}
-						// required
-					/>
-				</div>
-				<div className='form-group'>
-					<label for='mealType'>Meal type</label>
-					<br />
-					<select name='mealType' value={mealType} onChange={onChange} size='10'>
-						<br />
+
+				<Row >
+				<Col md={4}>
+				<FormGroup>
+					<Label for='mealType'>Meal type</Label>
+					
+					<Input type="select" name="mealType" value={mealType} onChange={onChange} >
+						
 						<option value='breakfastBrunch'>Breakfast & Brunch</option>
 						<option value='appetizer'>Appetizer</option>
 						<option value='mainCourse'>Main Course</option>
 						<option value='desserts'>Desserts</option>
 						<option value='drinks'>Drinks</option>
-					</select>
-				</div>
-				<div className='form-group'>
-					<label for='category'>Category</label>
-					<br />
-					<select name='category' value={category} onChange={onChange} size='10'>
-						<br />
+					</Input>
+				</FormGroup>
+				</Col>
+				<Col md={4}>
+				<FormGroup>
+					<Label for='category'>Category</Label>
+					
+					<Input type="select" name="category" value={category} onChange={onChange} >
+						
 						<option value='metric'>Salads</option>
 						<option value='soupsStews'>Soups & Stews</option>
 						<option value='breadDough'>Bread & Dough</option>
@@ -135,20 +120,31 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 						<option value='smoothies'>Smoothies</option>
 						<option value='desserts'>Desserts</option>
 						<option value='other'>Other</option>
-					</select>
-				</div>
-				<div className='form-group'>
-					<label for='dietRestriction'>Diet Restrictions. Hold ctrl to select all that apply.</label>
-					<br />
-					<select name='dietRestriction' value={dietRestriction} onChange={onChange} size='10'>
-						<br />
+					</Input>
+				</FormGroup>
+				</Col>
+				<Col md={4}>
+				<FormGroup>
+					<Label for='dietRestriction'>Diet Restrictions</Label>
+					
+					<Input type="select" name='dietRestriction' value={dietRestriction} onChange={onChange} >
+					    <option value='vegan'>Vegan</option>
 						<option value='vegetarian'>Vegetarian</option>
-						<option value='vegan'>Vegan</option>
 						<option value='rawVegan'>Raw Vegan</option>
-					</select>
-				</div>
-				<div className='form-group'>
-					<input
+					</Input>
+					
+				</FormGroup>
+				</Col>
+				</Row>
+
+
+                <Row >
+				<Col md={6}>
+				<FormGroup>
+				<FormText color="muted" style={{visibility: 'hidden'}}>
+                space placeholder
+                 </FormText>
+					<Input
 						type='text'
 						placeholder='Add coma separated tags'
 						name='tags'
@@ -156,28 +152,65 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
-				<div className='form-group'>
-					<label for='measurementsType'>Preffered units of measurements</label>
-					<br />
-					<select name='measurementsType' value={measurementsType} onChange={onChange} size='10'>
-						<br />
+				</FormGroup>
+				</Col>
+
+                 <Col md={4}>
+				<FormGroup>
+				<FormText color="muted" style={{visibility: 'hidden'}}>
+				space placeholder
+                </FormText>
+					<Input
+						type='number'
+						placeholder='Cooking time in minutes'
+						name='cookingTime'
+						value={cookingTime}
+						onChange={(e) => onChange(e)}
+						// required
+					/>
+					
+				</FormGroup>
+				</Col>
+				<Col md={2}>
+				<FormGroup>
+				<FormText color="muted">
+           Measuring units
+               </FormText>
+					{/* <Label for='measurementsType'>Measuring units</Label> */}
+				
+					<Input type="select" name='measurementsType' value={measurementsType} onChange={onChange}>
+				
 						<option value='metric'>Metric</option>
 						<option value='Plant-imperial'>Imperial</option>
-					</select>
-				</div>
-				<div className='form-group'>
-					<input
-						type='text'
+					</Input>
+				</FormGroup>
+				</Col>
+				</Row>
+		
+				<FormGroup>
+					<Input
+						type='url'
+						placeholder='Cover photo'
+						name='coverPhoto'
+						value={coverPhoto}
+						onChange={(e) => onChange(e)}
+						// required
+					/>
+				</FormGroup>
+			
+				
+				<FormGroup>
+					<Input
+						type="textarea"
 						placeholder='Preparation method'
 						name='preparation'
 						value={preparation}
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
-				<div className='form-group'>
-					<input
+				</FormGroup>
+				<FormGroup>
+					<Input
 						type='url'
 						placeholder='Preparation photos (optional)'
 						name='preparationPhotos'
@@ -185,10 +218,12 @@ const RecipeForm = ({createRecipe, history, handleSubmit}) => {
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
-				<input type='submit' className='btn btn-primary' value='Create recipe' />
-			</form>
+				</FormGroup>
+				<Button  size="lg" block  color="success" type='submit'  value='Post recipe' >Submit Recipe</Button>
+			</Form>
 			{/* <Link to='/add-ingredients'>Add ingredients</Link> */}
+		
+		</div>
 		</Fragment>
 	);
 	
@@ -205,3 +240,4 @@ RecipeForm.propTypes = {
 // });
 
 export default connect(null, {createRecipe})(RecipeForm);
+

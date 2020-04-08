@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {register} from '../../actions/auth';
 import PropTypes from 'prop-types';
 
+import SimpleModal from '../UI-components/RegLogModal'
 // @to do: change it to auth modal, pop up instead of separate route
 // @to do later: change the user model with email and password only to match abilionveg existing,
 // move username and profilePicture to profile model to not be part of the auth
@@ -43,29 +44,7 @@ const Register = ({register, isAuthenticated}) => {
 			console.log(formData);
 			console.log('Submitted form data');
 
-			// //test request with axios before setting up redux
-			// const newUser = {
-			//     username,
-			//     email,
-			//     password
-			// }
-
-			// try {
-			//     const config = {
-			//         headers: {
-			//             'Content-Type': 'application/json'
-			//         }
-			//     }
-
-			//     const body = JSON.stringify(newUser);
-			//     //send data to /api/users
-			//     const res = await axios.post('/api/users', body, config);
-			//     console.log(res.data);
-
-			// } catch (error) {
-			//     console.error(error.response.data);
-			// }
-			// ^ moved to auth action, here a=only calling it register();
+		
 		}
 	};
 
@@ -74,6 +53,7 @@ const Register = ({register, isAuthenticated}) => {
 	}
 
 	return (
+		
 		<div className='form-wrap'>
 			<h1 className='text-center'>Sign Up</h1>
 			<form className='' onSubmit={(e) => onSubmit(e)}>
@@ -126,6 +106,7 @@ const Register = ({register, isAuthenticated}) => {
 				Already have an account? <Link to='/login'>Log in </Link>
 			</p>
 		</div>
+		
 	);
 };
 

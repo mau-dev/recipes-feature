@@ -20,6 +20,7 @@ import {getRecipes} from '../../actions/recipe';
 const useStyles = makeStyles((theme) => ({
 	root: {
 	  flexGrow: 1,
+	  marginTop: 40,
 	},
 	paper: {
 	  height: 200,
